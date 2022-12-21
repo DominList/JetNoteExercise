@@ -9,10 +9,13 @@ import androidx.compose.material.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import com.example.jetnote.data.NotesDataSource
 import com.example.jetnote.screen.NoteScreen
 import com.example.jetnote.ui.theme.JetNoteTheme
 
 class MainActivity : ComponentActivity() {
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
@@ -22,17 +25,27 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-                    NoteScreen()
+                    NoteScreen(
+                        notes = dataSource.loadNotes(),
+                        onAddNote = {},
+                        onRemoveNote = {}
+                    )
                 }
             }
         }
     }
 }
 
+val dataSource = NotesDataSource()
+
 @Preview(showBackground = true)
 @Composable
 fun DefaultPreview() {
     JetNoteTheme {
-        NoteScreen()
+        NoteScreen(
+            notes = dataSource.loadNotes(),
+            onAddNote = {},
+            onRemoveNote = {}
+        )
     }
 }
