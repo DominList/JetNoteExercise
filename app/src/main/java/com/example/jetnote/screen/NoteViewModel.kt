@@ -13,7 +13,6 @@ class NoteViewModel() : ViewModel() {
         noteList.addAll(NotesDataSource().loadNotes())
     }
 
-
     fun addNote(note: Note) = noteList.add(note)
 
     fun removeNote(note: Note) = noteList.remove(note)
