@@ -32,7 +32,7 @@ import androidx.compose.ui.unit.dp
 import com.example.jetnote.R
 import com.example.jetnote.components.NoteButton
 import com.example.jetnote.components.NoteInputText
-import com.example.jetnote.dataSource
+import com.example.jetnote.data.NotesDataSource
 import com.example.jetnote.model.Note
 import java.time.format.DateTimeFormatter
 
@@ -107,7 +107,7 @@ fun NoteScreen(
                     onNoteClicked = {
                         onRemoveNote(note)
                         Toast.makeText(context, "Note removed!", Toast.LENGTH_SHORT).show()
-                })
+                    })
             }
         }
 
@@ -152,7 +152,7 @@ fun NoteRow(
 @Composable
 fun NotesScreenPreview() {
     NoteScreen(
-        notes = dataSource.loadNotes(),
+        notes = NotesDataSource().loadNotes(),
         onAddNote = {},
         onRemoveNote = {}
     )
