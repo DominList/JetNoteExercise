@@ -90,7 +90,7 @@ fun NoteScreen(
                 text = "Save",
                 onClick = {
                     if (title.isNotEmpty() && description.isNotEmpty()) {
-                        onAddNote(Note(title = title, descriptor = description))
+                        onAddNote(Note(title = title, description = description))
                         title = ""
                         description = ""
                         Toast.makeText(context, "Note created!", Toast.LENGTH_SHORT).show()
@@ -138,7 +138,7 @@ fun NoteRow(
                 text = note.title,
                 style = MaterialTheme.typography.subtitle1
             )
-            Text(text = note.descriptor)
+            Text(text = note.description)
             Text(
                 text = note.entryDate.format(DateTimeFormatter.ofPattern("EEE, d MMM")),
                 style = MaterialTheme.typography.caption
