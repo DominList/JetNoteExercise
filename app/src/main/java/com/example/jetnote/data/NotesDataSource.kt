@@ -15,7 +15,6 @@ class NotesDataSource {
             Note(title="Sweets stop", descriptor = "Go keto"),
             Note(title="Let's play football", descriptor = "Where are the guys?"),
             Note(title="Gonna rest", descriptor = "Today stay at home"),
-
         )
     }
 }
